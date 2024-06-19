@@ -83,19 +83,21 @@ class ModalPortal extends React.Component {
     }, onDismiss);
   }
 
-  renderModal = ({ type = 'modal', ...props }) => {
+  renderModal = ({ type = 'modal', key, ...props }) => {
     if (type === 'modal') {
       return (
         <BaseModal
           {...props}
-          onDismiss={() => this.dismissHandler(props.key)}
+          key={key}
+          onDismiss={() => this.dismissHandler(key)}
         />
       );
     } else if (type === 'bottomModal') {
       return (
         <BottomModal
           {...props}
-          onDismiss={() => this.dismissHandler(props.key)}
+          key={key}
+          onDismiss={() => this.dismissHandler(key)}
         />
       );
     }
